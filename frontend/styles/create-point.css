@@ -143,3 +143,64 @@ form input:focus {
 border button:hover {
 background-color: #2fb86e;
 }
+
+.items-grid {
+    display: grid;
+    /* fr = fracionado, css calcula sozinho para sempre manter 3 colunas, e se mais, taca pra próxima */
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Gap = aplica margem para todos os elementos do grid */
+    gap: 16px;
+}
+
+.items-grid li {
+    background-color: #f5f5f5;
+    /* Retira os bullets */
+    list-style: none;
+
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+
+    height: 180px;
+
+    padding: 32px 24px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Agora o fluxo do space-between está vertical, e nao horizaontla que é o padrão */
+    justify-content: space-between;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.items-grid li span {
+    /* A imagem computou um tamanho... agora o resto fica pro texto */
+    flex:1;
+
+    margin-top: 12px;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--title-color);
+}
+
+/* Preparando Css para interagir com JS.
+    quando se tem(li.selected) = classe "selected" dentro da tag li
+    e veja, que não é (li . selected) pois com o espaço estarei
+    dizendo que existe uma classe com em uma teg dentro da tag li.
+*/
+.items-grid li.selected {
+    background: #e1faec;
+    border: 2px solid #34cb79;
+
+}
+
+/* Retirar events do JS de pointer (click)
+assim não pega no target essas partes mencionadas, ele pega o CARD inteiro (li) */
+.items-grid li img,
+.items-grid li span {
+    pointer-events: none;
+}
