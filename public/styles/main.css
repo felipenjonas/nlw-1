@@ -17,7 +17,7 @@ html {
 body {
     background: #f0f0f5;
     -webkit-font-smoothing: antialiase;
-    animation: changecolor 10s 1;
+    animation: changecolor 5s 5;
 
 }
 
